@@ -39,8 +39,6 @@ export default class Main {
         const recorder = new Recorder();
         const audioService = new AudioService();
 
-        detector.start();
-
         const alexaStateMachine = new AlexaStateMachine({
             detector: detector,
             recorder: recorder,

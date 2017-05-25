@@ -30,6 +30,10 @@ export class AlexaDetector extends Detector {
         mic.pipe(this as any);
     }
 
+    public stop(): void {
+        record.stop();
+    }
+
     private setUp(): void {
         this.on("silence", () => {
             if (this.silenceTimer.isStarted() === false) {

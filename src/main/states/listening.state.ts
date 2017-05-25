@@ -25,6 +25,7 @@ export class ListeningState extends State {
     }
 
     public onExit(): void {
+        this.components.recorder.stop();
         this.detectorSubscription.unsubscribe();
     }
 }

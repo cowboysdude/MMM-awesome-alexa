@@ -12,6 +12,7 @@ export class IdleState extends State {
 
     public onEnter(): void {
         this.components.rendererSend("idle", {});
+        this.components.detector.start();
         this.detectorSubscription = this.components.detector.Observable.subscribe((value) => {
             switch (value) {
                 case DETECTOR.Hotword:
@@ -22,6 +23,7 @@ export class IdleState extends State {
     }
 
     public onExit(): void {
+        this.components.detector.stop();
         this.detectorSubscription.unsubscribe();
     }
 }
